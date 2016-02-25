@@ -48,9 +48,21 @@ $("#form2 button").click(function() {
 });
 
 // handle the mouseover event here
+$("#mouse img").mouseover(function() {
+    var height = $(this).height();
+    var width =$(this).width();
+    $(this).width(height*1.5);
+    $(this).height(height*1.5);
+});
 
 // handle the form events here
 
 $("#formEvents form").submit(function(event) {
-
+    event.preventDefault();
+    var check = $("form input[type=checkbox]").prop("checked");
+    var email = $("form input[type=email]").val();
+    var password = $("form input[type=password]").val();
+    console.log('check: ' + $("form input[type=checkbox]").prop("checked") );
+    console.log('email: ' + email );
+    console.log('password: ' + password );
 });
