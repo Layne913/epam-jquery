@@ -66,3 +66,44 @@ $("#formEvents form").submit(function(event) {
     console.log('email: ' + email );
     console.log('password: ' + password );
 });
+
+$( "#animate1 img" ).mouseover(function() {
+    var height = $(this).height() * 1.7;
+    var width = $(this).width() *1.7;
+    $( "#animate1 img" ).animate({
+        "height": height,
+        "width": width
+    });
+});
+
+var right = true;
+$( "#animate2 img" ).dblclick(function() {
+   if (right) {
+    $( "#animate2 img" ).animate({
+        "margin-left" : "400px"
+    }, 500, 'swing');
+    right = false;
+   }
+   else {
+     $( "#animate2 img" ).animate({
+        "margin-left" : "0"
+    }, 500, 'swing');
+    right = true;
+   }
+});
+
+$( "#animate3 img" ).click(function() {
+    function fadeIn(callback) {
+        $( "#animate3 img" ).attr('src', 'images/cat.jpg');
+        $( "#animate3 img" ).animate({ "opacity": "1"},'slow');
+        callback();
+    }
+
+    function fadeOut() {
+        $( "#animate3 img" ).animate({
+            "opacity" : "0"
+        }, 'slow');
+    }
+
+    fadeIn(fadeOut);
+});
